@@ -4,3 +4,4 @@ use-python-bin.patch
 verbose-link.patch
 link-libstdc++.patch
 native-libc-paths.patch
+max-component-len.patch
