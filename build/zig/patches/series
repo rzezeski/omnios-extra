@@ -1,0 +1,6 @@
+no-ld-stack-size.patch
+add-reg-defs.patch
+use-python-bin.patch
+verbose-link.patch
+link-libstdc++.patch
+native-libc-paths.patch

@@ -17,7 +17,7 @@
 . ../../lib/build.sh
 
 PROG=zig
-VER=0.9.1
+VER=0.11.0
 PKG=ooce/developer/zig
 SUMMARY="$PROG programming language"
 DESC="$PROG is a general-purpose programming language and toolchain for "
@@ -27,7 +27,7 @@ set_arch 64
 # We want to populate the clang-related environment variables
 # and set PATH to point to the correct llvm/clang version
 # but we want to build with gcc for releases before r151041
-set_clangver 13 # zig 0.9.x requires LLVM 13
+set_clangver 16 # zig 0.11.x requires LLVM 16
 test_relver '<' 151041 && BASEPATH=$PATH set_gccver $DEFAULT_GCC_VER
 
 CLANGFVER=`pkg_ver clang build-$CLANGVER.sh`
@@ -50,6 +50,9 @@ CONFIGURE_OPTS[amd64]="
     -DLLVM_LIBDIRS=$OPREFIX/llvm-$CLANGVER/lib
     -DCLANG_LIBDIRS=$OPREFIX/llvm-$CLANGVER/lib
     -DZIG_STATIC_LLVM=on
+    -DZIG_HOST_TARGET_ARCH:STRING="x86_64"
+    -DZIG_HOST_TARGET_OS:STRING="solaris"
+    -DZIG_HOST_TARGET_TRIPLE:STRING="x86_64-solaris"
 "
 
 init
@@ -82,10 +85,14 @@ CONFIGURE_OPTS[amd64]+="
 note -n "Building $PROG"
 
 set_builddir $PROG-$VER
+#set_mirror https://ziglang.org/download/0.11.0/
+set_mirror https://ziglang.org/download
+set_checksum "none"
 
 CXXFLAGS+=" -fPIC"
 
-download_source $PROG $PROG $VER
+#download_source $PROG $PROG $VER
+download_source $VER $PROG $VER
 patch_source
 prep_build cmake+ninja
 build -noctf    # C++
