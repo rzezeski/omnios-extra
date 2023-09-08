@@ -85,14 +85,10 @@ CONFIGURE_OPTS[amd64]+="
 note -n "Building $PROG"
 
 set_builddir $PROG-$VER
-#set_mirror https://ziglang.org/download/0.11.0/
-set_mirror https://ziglang.org/download
-set_checksum "none"
 
 CXXFLAGS+=" -fPIC"
 
-#download_source $PROG $PROG $VER
-download_source $VER $PROG $VER
+download_source $PROG $PROG $VER
 patch_source
 prep_build cmake+ninja
 build -noctf    # C++
