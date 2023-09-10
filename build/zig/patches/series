@@ -5,3 +5,4 @@ verbose-link.patch
 link-libstdc++.patch
 native-libc-paths.patch
 max-component-len.patch
+add-ca-certs.patch
