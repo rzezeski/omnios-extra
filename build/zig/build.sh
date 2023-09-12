@@ -42,8 +42,33 @@ XFORM_ARGS="
     -DPKGROOT=$PROG
 "
 
+#
+# CMAKE_BUILD_TYPE=RelWithDebInfo
+#
+#   Keep debug info so symbols are available to the various
+#   debugging tools.
+#
+# ZIG_STATIC_LLVM=on
+#
+#   Embed the LLVM toolchain in the zig executable. This is
+#   the preferred way to ship zig.
+#
+# ZIG_HOST_TARGET_ARCH=x86_64
+# ZIG_HOST_TARGET_OS=solaris
+# ZIG_HOST_TARGET_TRIPLE=x86_64-solaris
+#
+#   Manually set the triple. Otherwise it falls back to uname and
+#   we get a bogus target.
+#
+# ZIG_TARGET_MCPU=baseilne
+#
+#   Target the compiler to pentium4-era CPU features so it can
+#   work on the maximum set of hosts. This only effects the
+#   compiler executable, applications built with this compiler
+#   can set their own CPU features.
+#
 CONFIGURE_OPTS[amd64]="
-    -DCMAKE_BUILD_TYPE=Release
+    -DCMAKE_BUILD_TYPE=RelWithDebInfo
     -DCMAKE_INSTALL_PREFIX=$PREFIX
     -DLLVM_INCLUDE_DIRS=$OPREFIX/llvm-$CLANGVER/include
     -DCLANG_INCLUDE_DIRS=$OPREFIX/llvm-$CLANGVER/include
