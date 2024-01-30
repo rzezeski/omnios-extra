@@ -18,7 +18,8 @@
 
 PROG=zig
 #VER=0.12.0-dev.587+eb072fa52
-VER=0.12.0d587
+#VER=0.12.0d587
+VER=0.12.0
 MAJVER=0
 MINVER=12
 #MAJVER=${VER%%.*}
@@ -119,11 +120,16 @@ CONFIGURE_OPTS[amd64]+="
 note -n "Building $PROG"
 
 set_builddir $PROG-$VER
-#https://ziglang.org/builds/zig-0.12.0-dev.587+eb072fa52.tar.xz
-set_mirror https://ziglang.org
-set_checksum none
-download_source "builds" $PROG "0.12.0-dev.587+eb072fa52" "" \
-		"--transform=s/^zig-0.12.0-dev.587+eb072fa52/zig-0.12.0d587/"
+
+# https://ziglang.org/builds/zig-0.12.0-dev.654+599641357.tar.xz
+#set_mirror https://ziglang.org
+#set_checksum none
+#download_source "builds" $PROG "0.12.0-dev.654+599641357" "" \
+#		"--transform=s/^zig-0.12.0-dev.654+599641357/zig-0.12.0/"
+#		"--transform=s/^zig-0.12.0-dev.587+eb072fa52/zig-0.12.0d587/"
+
+clone_github_source "zig-0.12.0" $GITHUB/ziglang/zig c07d6e4
+append_builddir "zig-0.12.0"
 
 CXXFLAGS+=" -fPIC"
 
