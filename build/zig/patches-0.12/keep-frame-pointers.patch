@@ -9,7 +9,7 @@ index 87da0e695..e1bdc45ca 100644
 +    //
 +    // We prefer to have the frame pointer in illumos.
 +    //
-+    exe.omit_frame_pointer = false;
++    exe.root_module.omit_frame_pointer = false;
 +
      exe.build_id = b.option(
          std.Build.Step.Compile.BuildId,

@@ -84,9 +84,6 @@ CONFIGURE_OPTS[amd64]="
     -DLLVM_LIBDIRS=$OPREFIX/llvm-$CLANGVER/lib
     -DCLANG_LIBDIRS=$OPREFIX/llvm-$CLANGVER/lib
     -DZIG_STATIC_LLVM=on
-    -DZIG_HOST_TARGET_ARCH:STRING="x86_64"
-    -DZIG_HOST_TARGET_OS:STRING="solaris"
-    -DZIG_HOST_TARGET_TRIPLE:STRING="x86_64-solaris"
     -DZIG_TARGET_MCPU="baseline"
 "
 
@@ -128,7 +125,8 @@ set_builddir $PROG-$VER
 #		"--transform=s/^zig-0.12.0-dev.654+599641357/zig-0.12.0/"
 #		"--transform=s/^zig-0.12.0-dev.587+eb072fa52/zig-0.12.0d587/"
 
-clone_github_source "zig-0.12.0" $GITHUB/ziglang/zig c07d6e4
+# 79a096510 "zig1.wasm update after illumos changes
+clone_github_source "zig-0.12.0" $GITHUB/ziglang/zig 79a096510 "" 3000
 append_builddir "zig-0.12.0"
 
 CXXFLAGS+=" -fPIC"
