@@ -125,8 +125,8 @@ set_builddir $PROG-$VER
 #		"--transform=s/^zig-0.12.0-dev.654+599641357/zig-0.12.0/"
 #		"--transform=s/^zig-0.12.0-dev.587+eb072fa52/zig-0.12.0d587/"
 
-# 79a096510 "zig1.wasm update after illumos changes
-clone_github_source "zig-0.12.0" $GITHUB/ziglang/zig 79a096510 "" 3000
+# 9eda6cce InternPool: use separate key for slices
+clone_github_source "zig-0.12.0" $GITHUB/ziglang/zig 9eda6cce "" 3000
 append_builddir "zig-0.12.0"
 
 CXXFLAGS+=" -fPIC"
