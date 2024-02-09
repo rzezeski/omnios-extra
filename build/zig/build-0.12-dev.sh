@@ -125,8 +125,8 @@ set_builddir $PROG-$VER
 #		"--transform=s/^zig-0.12.0-dev.654+599641357/zig-0.12.0/"
 #		"--transform=s/^zig-0.12.0-dev.587+eb072fa52/zig-0.12.0d587/"
 
-# 9eda6cce InternPool: use separate key for slices
-clone_github_source "zig-0.12.0" $GITHUB/ziglang/zig 9eda6cce "" 3000
+# 0266017b597e8fc74f41ec4eb78b1466751021c9: Make EfiPhysicalAddress in std/os/uefi/tables.zig public
+clone_github_source "zig-0.12.0" $GITHUB/ziglang/zig 0266017b "" 3000
 append_builddir "zig-0.12.0"
 
 CXXFLAGS+=" -fPIC"
