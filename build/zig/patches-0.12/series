@@ -7,3 +7,4 @@ verbose-link.patch
 #add-ca-certs.patch
 #hard-code-dynamic-linker.patch
 keep-frame-pointers.patch
+is-valid-memory.patch
