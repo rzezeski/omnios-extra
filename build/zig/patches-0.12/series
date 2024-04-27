@@ -8,3 +8,4 @@ verbose-link.patch
 #hard-code-dynamic-linker.patch
 keep-frame-pointers.patch
 is-valid-memory.patch
+no-reuseport.patch
