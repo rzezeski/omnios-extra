@@ -10,3 +10,4 @@ keep-frame-pointers.patch
 is-valid-memory.patch
 no-reuseport.patch
 filter-getStdPath-error-set.patch
+interp-check.patch
